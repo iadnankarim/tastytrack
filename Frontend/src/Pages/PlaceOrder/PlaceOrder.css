@@ -1,0 +1,145 @@
+/* PlaceOrder.css */
+
+/* Form wrapper */
+.place-order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Left section (Delivery Info) */
+.place-order-left {
+  flex: 1 1 400px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.place-order-left .title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.place-order-left input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.place-order-left input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.multi-fields {
+  display: flex;
+  gap: 10px;
+}
+
+/* Right section (Cart & Payment) */
+.place-order-right {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-total h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.cart-total-details b {
+  font-size: 18px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+/* Payment buttons */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.payment-methods p {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.payment-methods button {
+  padding: 10px 15px;
+  border: 1px solid #6491c0;
+  border-radius: 6px;
+  background-color:6491c0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+/* .payment-methods button:hover {
+  background-color: #007bff;
+  color: #fff;
+} */
+
+/* .payment-methods button.active {
+  background-color: #007bff;
+  color: #fff;
+} */
+
+/* Confirm button */
+.confirm-btn {
+  margin-top: 20px;
+  padding: 12px;
+  width: 30%;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* .confirm-btn:hover {
+  background-color: #218838;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .place-order {
+    flex-direction: column;
+  }
+  .multi-fields {
+    flex-direction: column;
+  }
+}
