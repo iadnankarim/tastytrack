@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
   // const frontend_url = "http://localhost:5173";
-  const frontend_url = "http://localhost:5174";
+  const frontend_url = "https://tastytrack-frontend-xxg1.onrender.com/";
 
 
   try {
@@ -116,3 +116,4 @@ const updateStates=async(req,res)=>{
 }
 
 export { placeOrder, verifyOrder ,userOrders,listOrders,updateStates};
+
