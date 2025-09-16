@@ -9,11 +9,11 @@ export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props)=>{
   // console.log("food_list:", food_list); // Add this line
-
+  const url ="https://tastytracker.onrender.com"
   const [cartItems,setCartItems]= useState({})
   const [token , setToken]= useState("")
   const [food_list, setFood_list]=useState([])
-  const url ="https://tastytracker.onrender.com"
+  
 
   //first time card create krha hai 
   //else mai card already hai tuo wo +1 krha hai
@@ -122,3 +122,4 @@ const StoreContextProvider = (props)=>{
 
 
 export default StoreContextProvider
+
