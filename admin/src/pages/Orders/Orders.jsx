@@ -1,41 +1,40 @@
-
-
-import React, { useState, useEffect } from 'react'
-import './Orders.css'
-import axios from 'axios'
-import { toast } from 'react-toastify'
-import { assets } from '../../assets/assets'
+import React, { useState, useEffect } from "react";
+import "./Orders.css";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { assets } from "../../assets/assets";
 
 const Orders = ({ url }) => {
-  const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState([]);
 
   const fetchAllOrder = async () => {
     try {
-      const response = await axios.get(url + "/api/order/list")
+      const response = await axios.get(url + "/api/order/list");
       if (response.data.success) {
-        setOrders(response.data.data)
+        setOrders(response.data.data);
       } else {
-        toast.error("Error fetching orders")
+        toast.error("Error fetching orders");
       }
     } catch (err) {
-      toast.error("Server error")
+      toast.error("Server error");
     }
-  }
+  };
 
-  const statusHandler=async(event, orderId)=>{
+  const statusHandler = async (event, orderId) => {
     // console.log(event , orderId)
-    const response = await axios.post(url+"/api/order/status",{orderId,status:event.target.value})
+    const response = await axios.post(url + "/api/order/status", {
+      orderId,
+      status: event.target.value,
+    });
 
-     if(response.data.success){
-    await fetchAllOrder()
-  }
-  }
-
- 
+    if (response.data.success) {
+      await fetchAllOrder();
+    }
+  };
 
   useEffect(() => {
-    fetchAllOrder()
-  }, [])
+    fetchAllOrder();
+  }, []);
 
   return (
     <div className="order add">
@@ -59,25 +58,37 @@ const Orders = ({ url }) => {
             {orders.map((order, index) => (
               <tr key={index}>
                 <td>
-                  <img src={assets.parcel_icon} alt="Parcel" className="parcel-icon" />
+                  <img
+                    src={assets.parcel_icon}
+                    alt="Parcel"
+                    className="parcel-icon"
+                  />
                 </td>
                 <td>
                   {order.items.map((item, i) => (
                     <span key={i}>
                       {item.name}x{item.quantity}
-                      {i !== order.items.length - 1 && ', '}
+                      {i !== order.items.length - 1 && ", "}
                     </span>
                   ))}
                 </td>
-                <td>{order.address.firstName} {order.address.lastName}</td>
                 <td>
-                  {order.address.street}, {order.address.city}, {order.address.state}, {order.address.country}, {order.address.zipcode}
+                  {order.address.firstName} {order.address.lastName}
+                </td>
+                <td>
+                  {order.address.street}, {order.address.city},{" "}
+                  {order.address.state}, {order.address.country},{" "}
+                  {order.address.zipcode}
                 </td>
                 <td>{order.address.phone}</td>
                 <td>{order.items.length}</td>
                 <td>${order.amount}</td>
                 <td>
-                  <select defaultValue="Food Processing" onChange={(event)=>statusHandler(event, order._id)} value={order.status}>
+                  <select
+                    defaultValue="Food Processing"
+                    onChange={(event) => statusHandler(event, order._id)}
+                    value={order.status}
+                  >
                     <option value="Food Processing">Food Processing</option>
                     <option value="Out for delivery">Out for delivery</option>
                     <option value="Delivered">Delivered</option>
@@ -89,9 +100,7 @@ const Orders = ({ url }) => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Orders
-
-
+export default Orders;
