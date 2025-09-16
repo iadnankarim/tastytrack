@@ -1,0 +1,134 @@
+.list {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.list-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.list-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Table Header */
+.list-table-format.title {
+  display: grid;
+  grid-template-columns: 0.7fr 1.8fr 1fr 0.8fr 0.6fr;
+  align-items: center;
+  background: #f5f7fa;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Table Row */
+.list-table-format {
+  display: grid;
+  grid-template-columns: 0.7fr 1.8fr 1fr 0.8fr 0.6fr;
+  align-items: center;
+  padding: 12px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.list-table-format:hover {
+  background: #f9fafb;
+  transform: scale(1.01);
+}
+
+/* Image */
+.list-table-format img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+
+/* 📱 Mobile Devices (max-width: 600px) */
+@media (max-width: 600px) {
+  .list {
+    padding: 15px;
+  }
+
+  .list-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .list-table-format.title {
+    display: none; /* Hide header on mobile */
+  }
+
+  .list-table-format {
+    grid-template-columns: 1fr 2fr; /* Only image + details */
+    gap: 10px;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .list-table-format img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .list-table-format p {
+    margin: 2px 0;
+  }
+
+  .delete-btn {
+    grid-column: span 2; /* Full width button */
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+
+/* 📲 Tablets (max-width: 900px) */
+@media (max-width: 900px) {
+  .list-table-format.title {
+    grid-template-columns: 0.6fr 1.5fr 1fr 0.8fr;
+  }
+
+  .list-table-format {
+    grid-template-columns: 0.6fr 1.5fr 1fr 0.8fr;
+  }
+
+  .delete-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
